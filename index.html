@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            background-image: url('https://i.postimg.cc/YStWdr2G/save-my-love-for-loneliness-wallpaper-3840x2160.jpg'); /* ضع مسار الصورة هنا */
+            background-image: url('https://i.postimg.cc/GppGqzzC/abandoned-vintage-train-forgotten-on-the-railway-in-the-forest-wallpaper-2880x1620.jpg'); /* ضع مسار الصورة هنا */
             background-size: cover; /* لضبط حجم الصورة لتغطية الشاشة بالكامل */
             background-repeat: no-repeat; /* لمنع تكرار الصورة */
             background-position: center center; /* لضبط موضع الصورة في منتصف الشاشة */
@@ -19,7 +19,78 @@
             color: #333;
             position: relative;
             padding-bottom: 60px; /* لضمان عدم تغطية المحتوى بالفوتر الثابت */
+            transition: background-color 0.5s, color 0.5s;
         }
+
+        /* --- بداية تنسيقات الوضع الداكن (مُعدلة) --- */
+        /* تم إزالة التأثير على الخلفية ورسالة الترحيب */
+
+        body.dark-mode .icon {
+            background-color: rgba(40, 40, 40, 0.95);
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .icon:hover {
+            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.7);
+        }
+
+        body.dark-mode .modal-content {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .close-btn:hover {
+            color: #fff;
+        }
+        
+        body.dark-mode #passwordInput {
+            background-color: #333;
+            color: #fff;
+            border-color: #555;
+        }
+
+        body.dark-mode #passwordModal h3, body.dark-mode #passwordModal p {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .mcq-display-item {
+            background-color: #333;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-mode .mcq-display-item h4 {
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .mcq-option {
+            background-color: #444;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .mcq-option:hover {
+            background-color: #555;
+        }
+
+        body.dark-mode .mcq-option.selected.correct {
+            background-color: #1a4d2e;
+            border-color: #28a745;
+        }
+        
+        body.dark-mode .mcq-option.selected.incorrect {
+            background-color: #5d1b22;
+            border-color: #dc3545;
+        }
+        
+        body.dark-mode #textDisplay {
+             background-color: #2a2a2a;
+             color: #e0e0e0;
+        }
+
+        body.dark-mode .footer {
+            background-color: #1a1a1a;
+        }
+        /* --- نهاية تنسيقات الوضع الداكن --- */
 
         /* تنسيقات رسالة الترحيب */
         .welcome-message {
@@ -36,6 +107,32 @@
             font-size: 20px;
             color: #fff;
         }
+
+        /* --- زر الوضع الداكن (تم تعديل مكانه) --- */
+        #darkModeToggle {
+            position: fixed;
+            top: 67px;
+            right: 10px;
+            z-index: 1001;
+            background-color: rgba(244, 72, 164, 0.8);
+            border: 2px solid white;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        #darkModeToggle:hover {
+            transform: scale(1.1);
+            background-color: rgba(216, 60, 143, 1);
+        }
+
 
         /* تنسيقات حاوية الأيقونات */
         .icon-container {
@@ -58,7 +155,7 @@
             overflow: hidden;
             border-radius: 12px;
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -135,6 +232,7 @@
             text-align: center;
             position: relative;
             animation-duration: 0.5s;
+            transition: background-color 0.5s, color 0.5s;
         }
         
         #mcqDisplayModal .modal-content,
@@ -254,7 +352,7 @@
         /* --- نهاية إضافة تنسيقات نافذة كلمة السر --- */
 
         /* (بقية تنسيقات CSS تبقى كما هي) */
-        .mcq-display-item { background-color: #f9f9f9; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .mcq-display-item { background-color: #f9f9f9; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s; }
         .mcq-display-item:hover { transform: translateY(-5px); box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); }
         .mcq-display-item h4 { margin-bottom: 15px; font-size: 18px; color: #333; text-align: left; }
         .mcq-option { background-color: #e0e0e0; border-radius: 8px; padding: 15px; margin-bottom: 10px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; text-align: left; }
@@ -289,7 +387,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="welcome-message" id="welcomeMessage"></div>
+    <div class="welcome-message" id="welcomeMessage">
+        </div>
+
+    <button id="darkModeToggle">🌙</button>
+
     <button id="backButton" onclick="goBack()">⬅</button>
     <div class="icon-container" id="iconContainer"></div>
 
@@ -354,6 +456,7 @@
         function displayWebAppContent(icon) { var modal = document.getElementById('webAppDisplayModal'); var iframe = document.getElementById('webAppFrame'); var title = document.getElementById('webAppModalTitle'); title.innerText = icon.title; iframe.srcdoc = icon.webAppCode; var modalContent = modal.querySelector('.modal-content'); modalContent.classList.remove('hide'); modalContent.classList.add('show'); modal.style.display = 'block'; }
         function closeWebAppDisplay() { var modal = document.getElementById('webAppDisplayModal'); var modalContent = modal.querySelector('.modal-content'); modalContent.classList.remove('show'); modalContent.classList.add('hide'); modalContent.addEventListener('animationend', function() { modal.style.display = 'none'; var iframe = document.getElementById('webAppFrame'); iframe.srcdoc = ''; }, { once: true }); }
         
+        // ================== بداية الكود المعدل ==================
         function handleOptionClick(element, questionIndex, optionIndex) { 
             var mcqItem = element.closest('.mcq-display-item'); 
             var mcq = currentMCQIcon.mcqs[questionIndex]; 
@@ -372,7 +475,12 @@
                         var correctOptionText = mcq.options[correctAnswerIndex]; 
                         var correctMessage = document.createElement('div'); 
                         correctMessage.className = 'correct-answer'; 
-                        correctMessage.textContent = 'The correct answer is: ' + correctOptionText; 
+                        
+                        // التحقق من لغة السؤال لترجمة النص
+                        const isArabic = /[\u0600-\u06FF]/.test(mcq.question);
+                        const correctMessagePrefix = isArabic ? 'الإجابة الصحيحة هي: ' : 'The correct answer is: ';
+                        correctMessage.textContent = correctMessagePrefix + correctOptionText; 
+                        
                         mcqItem.appendChild(correctMessage); 
                         incorrectlyAnsweredQuestions.push(mcq); 
                     } 
@@ -390,9 +498,8 @@
             } 
         }
 
-        // --- بداية التعديل على دالة showMCQScore ---
         function showMCQScore() { 
-            var scoreMessage = 'لقد أجبت بشكل صحيح على ' + correctAnswersCount + ' من ' + totalMCQQuestions + ' أسئلة.'; 
+            var scoreMessage = 'لقد أجبت بشكل صحيح على ' + correctAnswersCount + ' من ' + totalMCQQuestions ; 
             var scoreDiv = document.createElement('div'); 
             scoreDiv.className = 'mcq-score'; 
             scoreDiv.textContent = scoreMessage; 
@@ -401,7 +508,7 @@
 
             if (incorrectlyAnsweredQuestions.length > 0) {
                 var reviewContainer = document.createElement('div');
-                reviewContainer.style.textAlign = 'left';
+                reviewContainer.style.textAlign = 'right'; // محاذاة لليمين
                 reviewContainer.style.marginTop = '30px';
                 reviewContainer.style.padding = '20px';
                 reviewContainer.style.borderTop = '2px solid #f448a4';
@@ -422,10 +529,15 @@
                     var questionText = document.createElement('p');
                     questionText.style.fontWeight = 'bold';
                     questionText.style.color = '#333';
-                    questionText.textContent = `Q: ${mcq.question}`;
-                    questionWrapper.appendChild(questionText);
 
-                    // --- الكود الجديد لعرض الاختيارات ---
+                    // التحقق من لغة السؤال لترجمة البادئة وتعيين الاتجاه
+                    const isArabic = /[\u0600-\u06FF]/.test(mcq.question);
+                    const questionPrefix = isArabic ? 'س' : 'Q';
+                    questionText.textContent = `${questionPrefix}: ${mcq.question}`;
+                    questionText.style.direction = isArabic ? 'rtl' : 'ltr';
+                    questionText.style.textAlign = isArabic ? 'right' : 'left';
+                    questionWrapper.appendChild(questionText);
+                    
                     var optionsContainer = document.createElement('div');
                     optionsContainer.style.padding = '10px 20px';
                     mcq.options.forEach(function(option) {
@@ -433,16 +545,22 @@
                         optionElement.textContent = `- ${option}`;
                         optionElement.style.margin = '5px 0';
                         optionElement.style.color = '#555';
+                         optionElement.style.direction = isArabic ? 'rtl' : 'ltr';
+                        optionElement.style.textAlign = isArabic ? 'right' : 'left';
                         optionsContainer.appendChild(optionElement);
                     });
                     questionWrapper.appendChild(optionsContainer);
-                    // --- نهاية كود عرض الاختيارات ---
 
                     var correctAnswerText = document.createElement('p');
                     correctAnswerText.style.color = '#28a745';
                     correctAnswerText.style.fontWeight = 'bold';
                     correctAnswerText.style.marginTop = '10px';
-                    correctAnswerText.textContent = `The correct one is: ${mcq.options[mcq.correctAnswer]}`;
+                    
+                    // ترجمة نص الإجابة الصحيحة وتعيين الاتجاه
+                    const correctAnswerPrefix = isArabic ? 'الإجابة الصحيحة هي: ' : 'The correct one is: ';
+                    correctAnswerText.textContent = `${correctAnswerPrefix}${mcq.options[mcq.correctAnswer]}`;
+                    correctAnswerText.style.direction = isArabic ? 'rtl' : 'ltr';
+                    correctAnswerText.style.textAlign = isArabic ? 'right' : 'left';
                     questionWrapper.appendChild(correctAnswerText);
                     
                     reviewContainer.appendChild(questionWrapper);
@@ -451,37 +569,67 @@
                 mcqDisplayContent.appendChild(reviewContainer);
             }
         }
-        // --- نهاية التعديل على دالة showMCQScore ---
-
-        function displayTextContent(icon) { var modal = document.getElementById('textDisplayModal'); var content = document.getElementById('textDisplay'); content.innerHTML = icon.text; content.dir = icon.textDirection || 'rtl'; content.style.backgroundColor = ''; document.getElementById('textBackgroundColor').value = '#ffffff'; document.getElementById('textModalTitle').innerText = icon.title; var modalContent = modal.querySelector('.modal-content'); modalContent.classList.remove('hide'); modalContent.classList.add('show'); modal.style.display = 'block'; }
         
-        function displayMCQContent(icon) { 
-            var modal = document.getElementById('mcqDisplayModal'); 
-            var content = document.getElementById('mcqContent'); 
-            content.innerHTML = ''; 
-            document.getElementById('mcqModalTitle').innerText = icon.title; 
-            currentMCQIcon = icon; 
-            correctAnswersCount = 0; 
-            totalMCQQuestions = icon.mcqs.length; 
-            incorrectlyAnsweredQuestions = []; 
-            icon.mcqs.forEach(function(mcq, index) { 
-                var mcqDiv = document.createElement('div'); 
-                mcqDiv.className = 'mcq-display-item'; 
-                var optionsHTML = ''; 
-                mcq.options.forEach(function(option, optIndex) { 
-                    optionsHTML += `<div class="mcq-option" onclick="handleOptionClick(this, ${index}, ${optIndex})"><span>${option}</span></div>`; 
-                }); 
-                mcqDiv.innerHTML = `<h4>Q ${index + 1}: ${mcq.question}</h4><div class="mcq-options">${optionsHTML}</div><div class="mcq-feedback incorrect-feedback">إجابة خاطئة.</div>`; 
-                content.appendChild(mcqDiv); 
-                var separator = document.createElement('div'); 
-                separator.className = 'separator'; 
-                content.appendChild(separator); 
-            }); 
-            var modalContent = modal.querySelector('.modal-content'); 
-            modalContent.classList.remove('hide'); 
-            modalContent.classList.add('show'); 
-            modal.style.display = 'block'; 
+        function displayTextContent(icon) {
+            var modal = document.getElementById('textDisplayModal');
+            var content = document.getElementById('textDisplay');
+            content.innerHTML = icon.text;
+
+            const isArabic = /[\u0600-\u06FF]/.test(icon.text);
+            if (isArabic) {
+                content.dir = 'rtl';
+                content.style.textAlign = 'right';
+            } else {
+                content.dir = 'ltr';
+                content.style.textAlign = 'left';
+            }
+
+            content.style.backgroundColor = '';
+            document.getElementById('textBackgroundColor').value = '#ffffff';
+            document.getElementById('textModalTitle').innerText = icon.title;
+            var modalContent = modal.querySelector('.modal-content');
+            modalContent.classList.remove('hide');
+            modalContent.classList.add('show');
+            modal.style.display = 'block';
         }
+
+        function displayMCQContent(icon) {
+            var modal = document.getElementById('mcqDisplayModal');
+            var content = document.getElementById('mcqContent');
+            content.innerHTML = '';
+            document.getElementById('mcqModalTitle').innerText = icon.title;
+            currentMCQIcon = icon;
+            correctAnswersCount = 0;
+            totalMCQQuestions = icon.mcqs.length;
+            incorrectlyAnsweredQuestions = [];
+            icon.mcqs.forEach(function(mcq, index) {
+                var mcqDiv = document.createElement('div');
+                mcqDiv.className = 'mcq-display-item';
+
+                const isArabic = /[\u0600-\u06FF]/.test(mcq.question);
+
+                const questionPrefix = isArabic ? 'س' : 'Q';
+                const questionStyle = isArabic ? 'direction: rtl; text-align: right;' : 'direction: ltr; text-align: left;';
+                const optionStyle = isArabic ? 'direction: rtl; text-align: right;' : 'direction: ltr; text-align: left;';
+
+                var optionsHTML = '';
+                mcq.options.forEach(function(option, optIndex) {
+                    optionsHTML += `<div class="mcq-option" style="${optionStyle}" onclick="handleOptionClick(this, ${index}, ${optIndex})"><span>${option}</span></div>`;
+                });
+
+                mcqDiv.innerHTML = `<h4 style="${questionStyle}">${questionPrefix} ${index + 1}: ${mcq.question}</h4><div class="mcq-options">${optionsHTML}</div><div class="mcq-feedback incorrect-feedback">إجابة خاطئة.</div>`;
+                
+                content.appendChild(mcqDiv);
+                var separator = document.createElement('div');
+                separator.className = 'separator';
+                content.appendChild(separator);
+            });
+            var modalContent = modal.querySelector('.modal-content');
+            modalContent.classList.remove('hide');
+            modalContent.classList.add('show');
+            modal.style.display = 'block';
+        }
+        // ================== نهاية الكود المعدل ==================
         
         function closePasswordModal() {
             var modal = document.getElementById('passwordModal');
@@ -518,7 +666,7 @@
                 const iconElement = document.createElement('div');
                 iconElement.className = 'icon';
                 iconElement.innerHTML = `<img src="${icon.image}" alt="${icon.title}"><div class="icon-title">${icon.title}</div>`;
-                iconElement.onclick = () => handleIconClick(icon);
+                iconElement.onclick = () => handleIconClick(icon, event);
                 container.appendChild(iconElement);
             });
             document.getElementById('backButton').style.display = iconStack.length > 0 ? 'block' : 'none';
@@ -576,11 +724,13 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            var welcomeMessage = document.getElementById('welcomeMessage');
+            var welcomeContainer = document.getElementById('welcomeMessage');
+            var messageSpan = document.createElement('span');
+            welcomeContainer.appendChild(messageSpan);
             var message = "🌹🤍أهلًا بيكم في تطبيق د.أسامة ربيعي";
             var index = 0;
-            function typeWriter() { if (index < message.length) { welcomeMessage.innerHTML += message.charAt(index); index++; setTimeout(typeWriter, 50); } else { setTimeout(eraseMessage, 5000); } }
-            function eraseMessage() { welcomeMessage.innerHTML = ''; index = 0; typeWriter(); }
+            function typeWriter() { if (index < message.length) { messageSpan.innerHTML += message.charAt(index); index++; setTimeout(typeWriter, 50); } else { setTimeout(eraseMessage, 5000); } }
+            function eraseMessage() { messageSpan.innerHTML = ''; index = 0; typeWriter(); }
             typeWriter();
 
             var shapesContainer = document.getElementById('backgroundShapes');
@@ -12135,8 +12285,41 @@
             renderIcons(currentIcons);
             
             document.getElementById('passwordForm').addEventListener('submit', handlePasswordSubmit);
+
+            // --- بداية كود الوضع الداكن (مُعدل) ---
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+
+            // دالة لتطبيق الوضع الداكن
+            const enableDarkMode = () => {
+                body.classList.add('dark-mode');
+                darkModeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            };
+
+            // دالة لإلغاء الوضع الداكن
+            const disableDarkMode = () => {
+                body.classList.remove('dark-mode');
+                darkModeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            };
+
+            // التحقق من الوضع المحفوظ عند تحميل الصفحة
+            if (localStorage.getItem('theme') === 'dark') {
+                enableDarkMode();
+            }
+
+            // إضافة المستمع لزر التبديل
+            darkModeToggle.addEventListener('click', () => {
+                if (body.classList.contains('dark-mode')) {
+                    disableDarkMode();
+                } else {
+                    enableDarkMode();
+                }
+            });
+            // --- نهاية كود الوضع الداكن ---
         });
     </script>
 </body>
-
 </html>
+
